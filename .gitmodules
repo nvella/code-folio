@@ -1,0 +1,9 @@
+[submodule "2014-Ruby-logicbot"]
+	path = 2014-Ruby-logicbot
+	url = https://github.com/nvella/logicbot
+[submodule "2016-Ruby-folio-app"]
+	path = 2016-Ruby-folio-app
+	url = https://github.com/nvella/folio-app
+[submodule "2015-JS_ES5-nickmoo"]
+	path = 2015-JS_ES5-nickmoo
+	url = https://github.com/nvella/nickmoo
