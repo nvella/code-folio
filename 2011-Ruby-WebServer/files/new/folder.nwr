@@ -1,0 +1,15 @@
+if $GET.length < 2 then
+	if $GET.length == 0 then
+		$OUT += ("<html><head><title>Err... Errr.... ERROR!!!</title></head><body><center><h1>Please supply paramerters</h1></center></body></html>")
+	else
+		path = $GET['path']
+		$OUT += "<html><head><title>Create folder in #{path.gsub("+", " ")}</title></head><body><center><h1>Create folder in #{path.gsub("+", " ")}</h1><form method=\"get\"><input type=\"hidden\" name=\"path\" value=\"#{path.gsub("+", " ")}\" /><input name=\"name\" type=\"text\" /><input type=\"submit\" /></form>"
+	end
+else
+	path = $GET['path']
+	name = $GET['name']
+	Dir.mkdir(path.gsub("+", " ") + name)
+	$OUT += ("<html><head><title>Folder created!</title></head><body><center><h1>Folder created!</h1><p><a href=#{path}>Back</a></p></body></html>")
+end
+
+

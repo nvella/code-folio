@@ -1,0 +1,23 @@
+if $GET.length < 1 then
+	path = Dir.home() + "/"
+else
+	path = $GET['path']
+end
+
+if File.file?(path.gsub("+", " ")) then
+	$OUT += (IO.binread(path.gsub("+", " ")))
+else
+	$OUT += "<html><head><title>Directory listing of "#{path.gsub("+", " ")}"
+	$OUT += "</title></head><body><center><h1>Directory listing of #{path.gsub("+", " ")}</h1><table>\n"
+	Dir.entries(path).each do |name|
+		if name != "." and name != ".." then	
+			$OUT += "<tr><td><a href='index.nwr?path=#{path}#{name.gsub(" ", "+")}"
+			if File.file?("#{path.gsub("+", " ")}#{name}") then
+				$OUT += "'>#{name}</a></td></tr>"
+			else
+				$OUT += "/'>#{name}</a></td></tr>"
+			end
+		end
+	end
+	$OUT += "</table></center></body></html>"
+end
