@@ -1,0 +1,11 @@
+#C NDGMP-Mined Pattern
+#O Mined by 127.0.0.1 on 2014-01-04 12:32:23 +1100
+#C Width: 4 Height: 4
+#C Pool: RNP version 0.0.1
+#C State: oscillates
+#C Started: 2014-01-04 12:32:23 +1100 Finished: 2014-01-04 12:32:23 +1100
+#C Time spent: 2652 microseconds
+#C Generations ran on simulation: 2
+#C Loop: 0->2
+x = 0, y = 0, rule = B3/S23
+3ob$4b$4b$4b$!

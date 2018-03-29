@@ -1,0 +1,14 @@
+#!/usr/bin/ruby
+# rnp
+# by nick
+
+if RUBY_PLATFORM == 'java' then
+  puts "Due to a bug with comparing sets, RNP fails to function under jruby."
+  puts "Please use MRI (Matz' Ruby Interpreter)."
+  exit
+end
+
+require_relative '../lib/rnp'
+
+RNP::Server.new(24356).run
+

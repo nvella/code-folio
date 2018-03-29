@@ -1,0 +1,84 @@
+                                     NDGMP
+
+NDGMP (Nick's Distributed Game-Of-Life Mining Protocol) is a distributed
+pattern mining system for Conway's Game-Of-Life. The aim of this system is to
+discover new patterns for GOL which bear special properties. There is no
+scientific value in this system, only fun. :D
+
+The NDGMP system contains two major components. The 'miner', a machine
+running NDGMP patterning mining software, and the 'pool', a machine which
+co-ordinates and hands out new jobs to the miners.
+
+This document will describe the protocol used to communicate between the miner
+and the pool.
+
+= PACKETS ====================================================================
+
+ Every packet begins with a byte specifying the packet ID.
+ 
+ 0x00 - Login
+   - Short: Version number
+   - Null terminated string: Username (can be left as null for no username)
+   - Null terminated string: Password (can be left as null for no password)
+ 
+ 0x01 - Disconnect
+ 
+ 0x02 - Request Job
+ 
+ 0x03 - New job
+   - Short: Jobs in packet
+   [ (repeated)
+     - Long: Job ID
+     - Long: Width of grid to simulate.
+     - Long: Height of grid to simulate.
+     - Int: Length of following grid data
+     - (variable length): grid data
+   ]
+   
+ 0x04 - Login OK
+   - Int: Number of generations to run before giving up
+   - Byte: Bitmask for a cell living to the next generation
+   - Byte: Bitmask for a cell being born
+
+ 0x05 - Give up, too slow
+
+ 0x06 - Job done
+   - Short: Jobs in packet
+   [ (repeated)
+     - Long: Job ID
+     - Byte: State of grid
+     - Int: Generations ran
+     - Int: Microseconds spent on job
+     IF States EQUALS 3 OR 5 (Oscillates) 
+       - Int: Start of oscillation
+       - Int: End of oscillation
+   ]
+ 
+ 0x07 - Information Response (does not require login)
+  - Int: Gigacells/second
+  - Int: Miners
+  - Byte: Job infos in packet
+  [ (repeated)
+    - (variable length) Null terminated rle pattern name
+    - Byte: State of grid
+    - Int: Generations Ran
+    - Int: Microseconds spent on job
+    - Int: Start of Oscillation
+    - Int: End of oscillation         # Unlinke packet 0x6, this packet is not selective about extra data
+  ]
+ 
+ 0x08 - Information Request
+   
+= GRID STATES ================================================================
+
+ 0 - Stopped
+ 1 - Running
+ 2 - Unfinished
+ 3 - Oscillates 
+ 4 - Still-life
+ 5 - Spaceship
+
+= DATA TYPES =================================================================
+
+ NOTE: All data is Network-Order (big endian)
+ 

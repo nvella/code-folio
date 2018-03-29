@@ -1,0 +1,11 @@
+#C NDGMP-Mined Pattern
+#O Mined by 127.0.0.1 on 2013-12-30 02:28:45 +1100
+#C Width: 3 Height: 3
+#C Pool: RNP version 0.0.1
+#C State: spaceship
+#C Started: 2013-12-30 02:28:45 +1100 Finished: 2013-12-30 02:28:45 +1100
+#C Time spent: 0.12110763s
+#C Generations ran on simulation: 4
+#C Loop: 0->3
+x = 0, y = 0, rule = B3/S23
+2bo$obo$b2o$!
