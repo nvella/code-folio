@@ -1,0 +1,1 @@
+ruby\bin\ruby.exe bin\minilife

@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require 'gosu'
+require 'set'
+
+require_relative '../lib/minilife'
+require_relative '../lib/minilife/tickable'
+require_relative '../lib/minilife/window'
+require_relative '../lib/minilife/block_slide'
+require_relative '../lib/minilife/intro_screen'
+require_relative '../lib/minilife/cursor'
+
+Minilife::Window.new.show
