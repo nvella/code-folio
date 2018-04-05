@@ -1,0 +1,16 @@
+{
+    "filesGlob": [
+        "./src/**/*.ts",
+        "./test/**/*.ts",
+        "./utils/**/*.ts"
+    ],
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "target": "es5",
+        "declaration": true,
+        "module": "commonjs",
+        "sourceMap": true,
+	"lib": ["es2015", "es2015.iterable"]
+    }
+}

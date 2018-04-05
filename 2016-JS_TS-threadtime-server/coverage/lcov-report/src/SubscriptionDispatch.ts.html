@@ -1,0 +1,893 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/SubscriptionDispatch.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> SubscriptionDispatch.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">77.14% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>108/140</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">47.06% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>16/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">73.68% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>28/38</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">77.88% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>88/113</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-yes">55x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">55x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">66x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41x</span>
+<span class="cline-any cline-yes">41x</span>
+<span class="cline-any cline-yes">77x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as _ from 'lodash';
+&nbsp;
+import { App, Obj } from './';
+import {
+    MessageType, Message, AddSubscriptionMessage, RmSubscriptionMessage,
+    ISubscription, ObjMessage, IObj, RmObjMessage, NetHandler, IObjCacheState, ObjCacheStateMessage, StatusMessage,
+    ObjType
+} from "@threadtime/threadtime-common";
+import {ObjLookupByNameMessage} from "@threadtime/threadtime-common/dist/src/Messages/ObjLookupByNameMessage";
+&nbsp;
+export class SubscriptionDispatch {
+    private app: App;
+    private netHandler: NetHandler;
+&nbsp;
+    subscriptions: {[key: string]: ISubscription};
+    objCache: {[subscriptionUid: string]: SubscriptionDispatchObjCacheEntry};
+    clientCacheState: IObjCacheState;
+&nbsp;
+    /**
+     * Construct a SubscriptionDispatch
+     * @param app Threadtime Server App instance
+     * @param netHandler The NetHandler to which this SubscriptionManager will be bound
+     */
+    constructor(app: App, netHandler: NetHandler) {
+        this.app = app;
+        this.netHandler = netHandler;
+&nbsp;
+        this.subscriptions = {};
+        this.objCache = {};
+        this.clientCacheState = {};
+    }
+&nbsp;
+    /**
+     * Binds this SubscriptionDispatch to the NetHandler and the App
+     */
+    bind(): void {
+        // Set-up AddSubscription handler
+        this.netHandler.onMessage(MessageType.AddSubscription, (msg: Message) =&gt;
+            this.addSubscription((new AddSubscriptionMessage(this.netHandler)).encapsulate(msg).subscription));
+&nbsp;
+        // Set-up RmSubscription handler
+        this.netHandler.onMessage(MessageType.RmSubscription, (msg: Message) =&gt;
+            this.rmSubscription((new RmSubscriptionMessage(this.netHandler)).encapsulate(msg).subscriptionIds));
+&nbsp;
+        // Set-up ObjCacheState handler
+        this.netHandler.onMessage(MessageType.ObjCacheState, (msg: Message) =&gt; {
+            let objCacheStateMsg = new ObjCacheStateMessage(this.netHandler).encapsulate(msg);
+            this.clientCacheState = objCacheStateMsg.objCacheState;
+        });
+&nbsp;
+        // Set-up obj lookup by name handler
+        this.netHandler.onMessage(MessageType.ObjLookupByName, (msg: Message) =&gt; {
+            let objLookupMsg = new ObjLookupByNameMessage(this.netHandler).encapsulate(msg);
+            this.objLookupByName(objLookupMsg.objName, objLookupMsg.objType).then((obj: Obj) =&gt; {
+                if(obj === null) {
+                    // Nothing found, reply status success false
+                    let statusMsg = new StatusMessage(this.netHandler);
+                    statusMsg.success = false;
+                    statusMsg.respondTo(msg);
+                } else {
+                    // Send the Objs
+                    let objMsg = new ObjMessage(this.netHandler);
+                    objMsg.objs = [obj.getProps()];
+                    objMsg.respondTo(msg);
+                }
+            });
+        });
+&nbsp;
+        // Set-up obj update/create handler
+        this.app.systemBus.on('obj', (obj: IObj) =&gt; this.objUpdate(obj));
+&nbsp;
+        // Set-up obj removal handler
+        this.app.systemBus.on('obj-remove', (objId: string) =&gt; this.objRemove(objId));
+    }
+&nbsp;
+    /**
+     * Add a subscription, allowing the client to receive updates on those objects
+     * @param subscription The subscription to add
+     */
+    addSubscription(subscription: ISubscription): Promise&lt;void&gt; {
+        return new Promise&lt;void&gt;((resolve) =&gt; {
+            // Add the subscription to the list of subscriptions
+            this.subscriptions[subscription.uid] = subscription;
+&nbsp;
+            // Push initial update
+            this.app.collectObjs(subscription.objectIds, subscription.depth).then((objs: Obj[]) =&gt; {
+                // Cache ObjIds affected
+                let cacheEntry: SubscriptionDispatchObjCacheEntry = {};
+                _.forEach(objs, (obj: Obj) =&gt; {
+                    cacheEntry[obj._id] = obj.parentIds;
+                });
+                cacheEntry = this.cleanCacheEntry(cacheEntry);
+&nbsp;
+                this.objCache[subscription.uid] = cacheEntry;
+&nbsp;
+                // Push these objs to the client
+                this.pushObjs(objs.map((obj: Obj) =&gt; obj.getProps()), [subscription.uid]);
+&nbsp;
+                // Resolve the promise
+                resolve();
+            });
+        });
+    }
+&nbsp;
+    /**
+     * Remove one or more subscriptions
+     * @param subscriptionIds The IDs of the Subscriptions to remove
+     */
+    rmSubscription(subscriptionIds: string[]) {
+        // Remove the subscription from the list of subscriptions
+        for(let id of subscriptionIds) {
+            <span class="missing-if-branch" title="else path not taken" >E</span>if(this.subscriptions[id]) delete this.subscriptions[id];
+            <span class="missing-if-branch" title="else path not taken" >E</span>if(this.objCache[id]) delete this.objCache[id];
+        }
+    }
+&nbsp;
+    /**
+     * Process an Obj update on the provided Obj
+     * @param obj The new or existing Obj
+     */
+    objUpdate(obj: IObj) {
+        // If this obj id is present of any of the subscriptions, it's an update
+        let subIds = this.findSubIdsForObj(obj._id);
+        if(!_.isEmpty(subIds)) {
+            // Push it to the client
+            this.pushObjs([obj], subIds);
+&nbsp;
+            // Update it's entry in the cache (parentIds possibly may have changed)
+            _.forEach(subIds, (subId: string) =&gt; {
+                this.objCache[subId] = this.cleanCacheEntry(this.objCache[subId]);
+            });
+&nbsp;
+            return;
+        }
+&nbsp;
+        // Obj is new. For each of this obj's parent ids:
+        _.forEach(obj.parentIds, (parentId: string) =&gt; {
+            // Find all the subIds for this parent
+            // If nothing is found, the function simply falls through
+            let subIds = this.findSubIdsForObj(parentId);
+&nbsp;
+            // For each of the subIds affected by this parent
+            _.forEach(subIds, (subId: string) =&gt; {
+                let subscription = this.subscriptions[subId];
+                let cache = this.objCache[subId];
+&nbsp;
+                // For each of the subscribed Obj IDs, calculate the distance between the parent ID and it
+                let parentDistance = this.distance(cache, parentId, subscription.objectIds);
+                <span class="missing-if-branch" title="if path not taken" >I</span>if(parentDistance === undefined) <span class="cstat-no" title="statement not covered" >return; </span>// There is no path to these objects available.
+&nbsp;
+                <span class="missing-if-branch" title="else path not taken" >E</span>if(parentDistance + 1 &lt;= subscription.depth) {
+                    // This object is affected by the subscription.
+&nbsp;
+                    // Add it to the cache and clean
+                    this.objCache[subId][obj._id] = obj.parentIds;
+                    this.objCache[subId] = this.cleanCacheEntry(this.objCache[subId]);
+&nbsp;
+                    // Push it to the client
+                    this.pushObjs([obj], [subId]);
+                }
+            });
+        });
+    }
+&nbsp;
+    /**
+     * Process an Obj removal
+     * @param objId The id of the Obj being removed
+     */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    objRemove(</span>objId: string) {</span>
+        let subIds = <span class="cstat-no" title="statement not covered" >this.findSubIdsForObj(objId);</span>
+<span class="cstat-no" title="statement not covered" >        if(!_.isEmpty(subIds)) {</span>
+            // Send rmObj message
+<span class="cstat-no" title="statement not covered" >            this.rmObjs([objId]);</span>
+&nbsp;
+            // For each of the affected subscriptions, remove the obj from the cache
+<span class="cstat-no" title="statement not covered" >            _.forEach(subIds, <span class="fstat-no" title="function not covered" >(</span>subId: string) =&gt; <span class="cstat-no" title="statement not covered" >this.rmObjInCacheEntry(subId, objId))</span>;</span>
+        }
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    objLookupByName(</span>name: string, type: ObjType): Promise&lt;Obj&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        return new Promise&lt;Obj&gt;(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            this.app.collections['objects'].findOne({</span>
+                name: name,
+                _id: {$regex: `^${type}.*$`}
+            }).then(<span class="fstat-no" title="function not covered" >(</span>doc: IObj) =&gt; {
+<span class="cstat-no" title="statement not covered" >                if(doc === null || doc === undefined) {</span>
+                    // Obj not found
+<span class="cstat-no" title="statement not covered" >                    resolve(null);</span>
+                } else {
+                    // Create a new Obj and send it
+                    let obj = <span class="cstat-no" title="statement not covered" >new Obj(this.app, doc._id);</span>
+<span class="cstat-no" title="statement not covered" >                    obj.setProps(doc);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    resolve(obj);</span>
+                }
+            }).catch(<span class="fstat-no" title="function not covered" >(</span>err) =&gt; <span class="cstat-no" title="statement not covered" >reject(err))</span>;
+        });
+    }
+&nbsp;
+    private pushObjs(iobjs: IObj[], <span class="missing-if-branch" title="if path not taken" >I</span>subscriptionIds: string[] = []) {
+        // Only send the objs when we have a newer version
+        iobjs = iobjs.filter((iobj) =&gt; iobj.rev &gt; (iobj._id in this.clientCacheState ? this.clientCacheState[iobj._id] : -1));
+&nbsp;
+        // If we have no Objs to send, stop now and send nothing
+        if(_.isEmpty(iobjs)) return;
+&nbsp;
+        // Push all these objects to the child
+        let objMsg = new ObjMessage(this.netHandler);
+        objMsg.objs = iobjs;
+        objMsg.subscriptionIds = subscriptionIds;
+&nbsp;
+        // Send the message
+        this.netHandler.send(objMsg);
+&nbsp;
+        // Update the client cache state for each of the Objs sent
+        for(let iobj of iobjs) this.clientCacheState[iobj._id] = iobj.rev;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    private rmObjs(</span>objIds: string[]) {
+        let rmObjMsg = <span class="cstat-no" title="statement not covered" >new RmObjMessage(this.netHandler);</span>
+<span class="cstat-no" title="statement not covered" >        rmObjMsg.objIds = objIds;</span>
+&nbsp;
+        // Send the message
+<span class="cstat-no" title="statement not covered" >        this.netHandler.send(rmObjMsg);</span>
+    }
+&nbsp;
+    private findSubIdsForObj(objId: string): string[] {
+        let caches: string[] = [];
+&nbsp;
+        _.forEach(this.objCache, (cache: SubscriptionDispatchObjCacheEntry, subId: string) =&gt; {
+            if(cache[objId] !== undefined) caches.push(subId);
+        });
+&nbsp;
+        return caches;
+    }
+&nbsp;
+    private distance(cacheEntry: SubscriptionDispatchObjCacheEntry, objId: string, endObjIds: string[]): number {
+        // Recursive algorithm that passes values in reverse
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(_.includes(endObjIds, objId)) return 0; // The end of the object graph was reached, return 0
+&nbsp;
+        // Get the distances of each of the parents
+        let distances: number[] = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >        _.forEach(cacheEntry[objId], <span class="fstat-no" title="function not covered" >(</span>parentId: string) =&gt; {</span>
+            let result = <span class="cstat-no" title="statement not covered" >this.distance(cacheEntry, parentId, endObjIds);</span>
+&nbsp;
+            // If a distance was returned, push it +1 onto the distances array
+<span class="cstat-no" title="statement not covered" >            if(typeof(result) === 'number') <span class="cstat-no" title="statement not covered" >distances.push(result + 1);</span></span>
+        });
+&nbsp;
+        // Return the minimum value (shortest distance)
+<span class="cstat-no" title="statement not covered" >        return _.min(distances);</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    private rmObjInCacheEntry(</span>subId: string, objId: string) {</span>
+        // WARNING - This function can be destructive on cyclic references.
+<span class="cstat-no" title="statement not covered" >        delete this.objCache[subId][objId];</span>
+<span class="cstat-no" title="statement not covered" >        _.forEach(this.objCache[subId], <span class="fstat-no" title="function not covered" >(</span>parentIds: string[], id: string) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            if(_.includes(parentIds, objId)) {</span>
+<span class="cstat-no" title="statement not covered" >                _.pull(this.objCache[subId][id], objId);</span>
+<span class="cstat-no" title="statement not covered" >                if(_.isEmpty(this.objCache[subId][id])) <span class="cstat-no" title="statement not covered" >this.rmObjInCacheEntry(subId, id);</span></span>
+            }
+        });
+    }
+&nbsp;
+    private cleanCacheEntry(cacheEntry: SubscriptionDispatchObjCacheEntry) {
+        // Clean up the cache by deleting non-resolvable parentIds (ties up loose ends at the top of the subscription, lvl = 0)
+        let cacheClean = _.cloneDeep(cacheEntry);
+        _.forEach(cacheEntry, (parentIds: string[], id: string) =&gt; {
+            cacheClean[id] = _.filter(parentIds, (parentId: string) =&gt; cacheEntry[parentId]);
+        });
+        return cacheClean;
+    }
+}
+&nbsp;
+export interface SubscriptionDispatchObjCacheEntry {
+    [id: string]: string[]
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Dec 09 2016 19:38:08 GMT+1100 (AEDT)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

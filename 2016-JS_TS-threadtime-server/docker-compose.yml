@@ -1,0 +1,30 @@
+version: '2'
+services:
+  db:
+    image: "mongo:3"
+    ports:
+     - "27017:27017"
+  rabbitmq:
+    hostname: rabbitmq
+    image: "rabbitmq:3"
+    ports:
+     - "5672:5672"
+  influxdb:
+    image: "influxdb:1.1"
+    ports:
+     - "8083:8083"
+     - "8086:8086"
+  app:
+    build: .
+    ports:
+     - "3000:3000"
+    depends_on:
+     - db
+     - rabbitmq
+     - influxdb
+    environment:
+     - "DB_URI=mongodb://db/threadtime"
+     - "INFLUXDB_URI=http://influxdb:8086/threadtime"
+     - "BUS_AMQP_ADDR=amqp://rabbitmq"
+     - "BUS_AMQP_EXCHANGE=threadtime_test"
+

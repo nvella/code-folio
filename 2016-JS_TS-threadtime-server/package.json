@@ -1,0 +1,72 @@
+{
+  "name": "@threadtime/threadtime-server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/src/index.js",
+  "typings": "dist/src/index.d.ts",
+  "scripts": {
+    "clean": "rm -r dist/ || :",
+    "prebuild": "npm run clean",
+    "build": "tsc --pretty",
+    "test": "mocha --recursive dist/test/",
+    "test-cov": "istanbul cover --print both _mocha -- --recursive dist/test",
+    "start": "node $NODE_DEBUG_OPTION ./dist/src/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nvella/threadtime-server.git"
+  },
+  "author": "Nick Vella <nick@nxk.me>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/nvella/threadtime-server/issues"
+  },
+  "homepage": "https://github.com/nvella/threadtime-server#readme",
+  "bin": {
+    "threadtime-server": "./dist/src/cli.js"
+  },
+  "files": [
+    "dist/src"
+  ],
+  "devDependencies": {
+    "async": "^2.0.1",
+    "chai": "^3.5.0",
+    "expect.js": "^0.3.1",
+    "istanbul": "1.1.0-alpha.1",
+    "merge2": "^1.0.2",
+    "mocha": "^3.1.0",
+    "remap-istanbul": "^0.7.0",
+    "socket.io-client": "^1.4.8",
+    "source-map-support": "^0.4.5",
+    "ts-node": "^1.6.1",
+    "typescript": "^2.1.4"
+  },
+  "dependencies": {
+    "@threadtime/threadtime-common": "0.0.2",
+    "@types/amqplib": "^0.5.0",
+    "@types/async": "^2.0.32",
+    "@types/bcrypt": "^1.0.0",
+    "@types/chai": "^3.4.34",
+    "@types/expect.js": "^0.3.29",
+    "@types/joi": "^9.0.32",
+    "@types/lodash": "^4.14.36",
+    "@types/mocha": "^2.2.32",
+    "@types/mongodb": "^2.1.33",
+    "@types/node": "^6.0.45",
+    "@types/shortid": "^0.0.28",
+    "@types/socket.io": "1.4.27",
+    "@types/socket.io-client": "1.4.27",
+    "@types/winston": "0.0.28",
+    "amqplib": "^0.5.1",
+    "bcrypt": "^1.0.2",
+    "es6-promise": "^4.0.5",
+    "influx": "^5.0.4",
+    "joi": "^9.2.0",
+    "lodash": "^4.16.2",
+    "mongodb": "^2.2.10",
+    "shortid": "^2.2.6",
+    "socket.io": "^1.4.8",
+    "uws": "^0.14.5",
+    "winston": "^2.2.0"
+  }
+}

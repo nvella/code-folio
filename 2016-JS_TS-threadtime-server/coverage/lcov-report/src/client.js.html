@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/client.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">src/</a> client.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>45/45</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>8/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>43/43</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
+var threadtime_common_1 = require('@threadtime/threadtime-common');
+var app_1 = require('./app');
+var Client = (function () {
+    function Client(app, socket) {
+        this.connected = false;
+        this.app = app;
+        this.socket = socket;
+        this.netHandler = new threadtime_common_1.NetHandler(socket);
+    }
+    Client.prototype.start = function () {
+        var _this = this;
+        this.log('Starting connection...');
+        // Emit 'client_disconnect' event on disconnect
+        this.socket.on('disconnect', function () { return _this.stop(); });
+        // Wait for handshake message
+        this.netHandler.onMessage(threadtime_common_1.MessageType.Handshake, function (msg) {
+            var handshakeMsg = new threadtime_common_1.HandshakeMessage().encapsulate(msg);
+            _this.log("Received handshake v=" + handshakeMsg.version);
+            if (handshakeMsg.version !== app_1.App.VERSION) {
+                _this.log('Versions incompatible, kicking');
+                var dcMsg = new threadtime_common_1.PermanentDisconnectMessage();
+                dcMsg.machineReason = threadtime_common_1.DisconnectMachineReason.VersionMismatch;
+                dcMsg.humanReason = "Client-Server version mismatch (server " + app_1.App.VERSION;
+                _this.netHandler.send(dcMsg);
+                _this.stop();
+                return;
+            }
+            // Set client version in instance
+            _this.clientVersion = handshakeMsg.version;
+            // Otherwise, reply back with handshake
+            var resp = new threadtime_common_1.HandshakeMessage();
+            resp.version = app_1.App.VERSION;
+            resp.replyTo = handshakeMsg.id;
+            _this.netHandler.send(resp);
+            // TODO Emit 'handshake' event
+        });
+        this.connected = true;
+    };
+    Client.prototype.stop = function (done) {
+        if (done === void 0) { done = function () { }; }
+        if (!this.connected)
+            return done(false); // Don't 'disconnect' if already DC'd
+        this.log('Stopping connection...');
+        this.connected = false;
+        if (this.socket.connected)
+            this.socket.disconnect();
+        this.app.emit('client_disconnect', this);
+        return done();
+    };
+    Client.prototype.log = function (str) {
+        this.app.log.info("[" + this.socket.client.conn.remoteAddress + "] " + str);
+    };
+    return Client;
+}());
+exports.Client = Client;
+&nbsp;
+//# sourceMappingURL=data:application/json;charset=utf8;base64,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QUMsQ0FBQztRQUN6QyxNQUFNLENBQUMsSUFBSSxFQUFFLENBQUM7SUFDbEIsQ0FBQztJQUVELG9CQUFHLEdBQUgsVUFBSSxHQUFXO1FBQ1gsSUFBSSxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsSUFBSSxDQUFDLE1BQUksSUFBSSxDQUFDLE1BQU0sQ0FBQyxNQUFNLENBQUMsSUFBSSxDQUFDLGFBQWEsVUFBSyxHQUFLLENBQUMsQ0FBQztJQUMzRSxDQUFDO0lBQ0wsYUFBQztBQUFELENBOURBLEFBOERDLElBQUE7QUE5RFksY0FBTSxTQThEbEIsQ0FBQSIsImZpbGUiOiJzcmMvY2xpZW50LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0ICogYXMgc2lvIGZyb20gJ3NvY2tldC5pbyc7XG5cbmltcG9ydCB7IE1lc3NhZ2UsIEhhbmRzaGFrZU1lc3NhZ2UsIFBlcm1hbmVudERpc2Nvbm5lY3RNZXNzYWdlLCBEaXNjb25uZWN0TWFjaGluZVJlYXNvbiwgTWVzc2FnZVR5cGUsIE5ldEhhbmRsZXIgfSBmcm9tICdAdGhyZWFkdGltZS90aHJlYWR0aW1lLWNvbW1vbic7XG5pbXBvcnQgeyBBcHAgfSBmcm9tICcuL2FwcCc7XG5cbmV4cG9ydCBjbGFzcyBDbGllbnQge1xuICAgIHByaXZhdGUgYXBwOiBBcHA7IFxuICAgIHByaXZhdGUgc29ja2V0OiBTb2NrZXRJTy5Tb2NrZXQ7XG5cbiAgICBuZXRIYW5kbGVyOiBOZXRIYW5kbGVyO1xuICAgIGNsaWVudFZlcnNpb246IHN0cmluZyB8IG51bGw7XG4gICAgY29ubmVjdGVkOiBib29sZWFuID0gZmFsc2U7XG5cbiAgICBjb25zdHJ1Y3RvcihhcHA6IEFwcCwgc29ja2V0OiBTb2NrZXRJTy5Tb2NrZXQpIHtcbiAgICAgICAgdGhpcy5hcHAgPSBhcHA7XG4gICAgICAgIHRoaXMuc29ja2V0ID0gc29ja2V0O1xuICAgICAgICB0aGlzLm5ldEhhbmRsZXIgPSBuZXcgTmV0SGFuZGxlcihzb2NrZXQpO1xuICAgIH1cblxuICAgIHN0YXJ0KCk6IHZvaWQge1xuICAgICAgICB0aGlzLmxvZygnU3RhcnRpbmcgY29ubmVjdGlvbi4uLicpO1xuICAgICAgICAvLyBFbWl0ICdjbGllbnRfZGlzY29ubmVjdCcgZXZlbnQgb24gZGlzY29ubmVjdFxuICAgICAgICB0aGlzLnNvY2tldC5vbignZGlzY29ubmVjdCcsICgpID0+IHRoaXMuc3RvcCgpKTtcblxuICAgICAgICAvLyBXYWl0IGZvciBoYW5kc2hha2UgbWVzc2FnZVxuICAgICAgICB0aGlzLm5ldEhhbmRsZXIub25NZXNzYWdlKE1lc3NhZ2VUeXBlLkhhbmRzaGFrZSwgKG1zZzogTWVzc2FnZSkgPT4ge1xuICAgICAgICAgICAgbGV0IGhhbmRzaGFrZU1zZyA9IG5ldyBIYW5kc2hha2VNZXNzYWdlKCkuZW5jYXBzdWxhdGUobXNnKTtcbiAgICAgICAgICAgIHRoaXMubG9nKGBSZWNlaXZlZCBoYW5kc2hha2Ugdj0ke2hhbmRzaGFrZU1zZy52ZXJzaW9ufWApO1xuXG4gICAgICAgICAgICBpZihoYW5kc2hha2VNc2cudmVyc2lvbiAhPT0gQXBwLlZFUlNJT04pIHtcbiAgICAgICAgICAgICAgICB0aGlzLmxvZygnVmVyc2lvbnMgaW5jb21wYXRpYmxlLCBraWNraW5nJyk7XG4gICAgICAgICAgICAgICAgbGV0IGRjTXNnID0gbmV3IFBlcm1hbmVudERpc2Nvbm5lY3RNZXNzYWdlKCk7XG4gICAgICAgICAgICAgICAgZGNNc2cubWFjaGluZVJlYXNvbiA9IERpc2Nvbm5lY3RNYWNoaW5lUmVhc29uLlZlcnNpb25NaXNtYXRjaDtcbiAgICAgICAgICAgICAgICBkY01zZy5odW1hblJlYXNvbiA9IGBDbGllbnQtU2VydmVyIHZlcnNpb24gbWlzbWF0Y2ggKHNlcnZlciAke0FwcC5WRVJTSU9OfWA7XG4gICAgICAgICAgICAgICAgdGhpcy5uZXRIYW5kbGVyLnNlbmQoZGNNc2cpO1xuICAgICAgICAgICAgICAgIHRoaXMuc3RvcCgpO1xuICAgICAgICAgICAgICAgIHJldHVybjtcbiAgICAgICAgICAgIH1cblxuICAgICAgICAgICAgLy8gU2V0IGNsaWVudCB2ZXJzaW9uIGluIGluc3RhbmNlXG4gICAgICAgICAgICB0aGlzLmNsaWVudFZlcnNpb24gPSBoYW5kc2hha2VNc2cudmVyc2lvbjtcblxuICAgICAgICAgICAgLy8gT3RoZXJ3aXNlLCByZXBseSBiYWNrIHdpdGggaGFuZHNoYWtlXG4gICAgICAgICAgICBsZXQgcmVzcCA9IG5ldyBIYW5kc2hha2VNZXNzYWdlKCk7XG4gICAgICAgICAgICByZXNwLnZlcnNpb24gPSBBcHAuVkVSU0lPTjtcbiAgICAgICAgICAgIHJlc3AucmVwbHlUbyA9IGhhbmRzaGFrZU1zZy5pZDtcbiAgICAgICAgICAgIHRoaXMubmV0SGFuZGxlci5zZW5kKHJlc3ApO1xuXG4gICAgICAgICAgICAvLyBUT0RPIEVtaXQgJ2hhbmRzaGFrZScgZXZlbnRcbiAgICAgICAgfSk7XG5cbiAgICAgICAgdGhpcy5jb25uZWN0ZWQgPSB0cnVlO1xuICAgIH1cblxuICAgIHN0b3AoZG9uZTogRnVuY3Rpb24gPSAoKSA9PiB7fSk6IHZvaWQge1xuICAgICAgICBpZighdGhpcy5jb25uZWN0ZWQpIHJldHVybiBkb25lKGZhbHNlKTsgLy8gRG9uJ3QgJ2Rpc2Nvbm5lY3QnIGlmIGFscmVhZHkgREMnZFxuXG4gICAgICAgIHRoaXMubG9nKCdTdG9wcGluZyBjb25uZWN0aW9uLi4uJyk7XG4gICAgICAgIHRoaXMuY29ubmVjdGVkID0gZmFsc2U7XG4gICAgICAgIGlmKHRoaXMuc29ja2V0LmNvbm5lY3RlZCkgdGhpcy5zb2NrZXQuZGlzY29ubmVjdCgpO1xuICAgICAgICB0aGlzLmFwcC5lbWl0KCdjbGllbnRfZGlzY29ubmVjdCcsIHRoaXMpO1xuICAgICAgICByZXR1cm4gZG9uZSgpO1xuICAgIH1cblxuICAgIGxvZyhzdHI6IHN0cmluZyk6IHZvaWQge1xuICAgICAgICB0aGlzLmFwcC5sb2cuaW5mbyhgWyR7dGhpcy5zb2NrZXQuY2xpZW50LmNvbm4ucmVtb3RlQWRkcmVzc31dICR7c3RyfWApO1xuICAgIH1cbn0iXX0=
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Oct 31 2016 16:55:37 GMT+1100 (AEDT)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

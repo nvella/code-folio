@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">src/</a> app.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">92.41% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>73/79</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">68% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>17/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.48% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>19/21</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">94.37% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>67/71</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
+var __extends = (this &amp;&amp; this.__extends) || function (d, b) {
+    for (var p in b) <span class="missing-if-branch" title="else path not taken" >E</span>if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? <span class="branch-0 cbranch-no" title="branch not covered" >Object.create(b) </span>: (__.prototype = b.prototype, new __());
+};
+var sio = require('socket.io');
+var http = require('http');
+var winston = require('winston');
+var async = require('async');
+var mongodb_1 = require('mongodb');
+var events_1 = require('events');
+var _ = require('lodash');
+var client_1 = require('./client');
+var collection_map_1 = require('./collection_map');
+var App = (function (_super) {
+    __extends(App, _super);
+    function App(port, dbUri) {
+        var _this = this;
+        if (port === void 0) { port = process.env.PORT || 3000; }
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (dbUri === void 0) { dbUri = process.env.DB_URI || 'mongodb://localhost/threadtime'; }
+        _super.call(this);
+        this.port = port;
+        this.dbUri = dbUri;
+        this.http = http.createServer();
+        this.io = sio(this.http);
+        this.clients = [];
+        this.collections = {};
+        // Set up log
+        this.log = new winston.Logger({ transports: [
+                new winston.transports.Console({ 'timestamp': true })
+            ] });
+        this.io.on('connection', function (socket) {
+            // Create new client
+            var client = new client_1.Client(_this, socket);
+            // Add it to the clients list
+            _this.clients.push(client);
+            // Start the client
+            client.start();
+        });
+        this.on('client_disconnect', function (client) {
+            _.pull(_this.clients, client);
+        });
+    }
+    // Start the server
+    App.prototype.start = function (done) {
+        var _this = this;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (done === void 0) { <span class="cstat-no" title="statement not covered" >done = <span class="fstat-no" title="function not covered" >function () {</span> }; </span>}
+        this.log.info("Threadtime Server version " + App.VERSION + " starting...");
+        async.series([
+            function (callback) {
+                mongodb_1.MongoClient.connect(_this.dbUri, function (err, db) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                        _this.log.error(err);</span>
+<span class="cstat-no" title="statement not covered" >                        return callback(err);</span>
+                    }
+                    _this.log.info('Database connected.');
+                    _this.db = db;
+                    callback();
+                });
+            },
+            function (callback) {
+                _this.log.info('Connecting collections...');
+                async.forEachOf(collection_map_1.CollectionMap, function (col, type, callback) {
+                    _this.log.info("    " + col + "...");
+                    _this.db.collection(col, function (err, mongocol) {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (err)
+<span class="cstat-no" title="statement not covered" >                            callback(err);</span>
+                        _this.collections[col] = mongocol;
+                        callback();
+                    });
+                }, callback);
+            },
+            function (callback) { return _this.http.listen(_this.port, function () {
+                _this.log.info("Now listening on " + _this.port);
+                callback();
+            }); }
+        ], done);
+    };
+    // Stop the server
+    App.prototype.stop = function (done) {
+        var _this = this;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (done === void 0) { <span class="cstat-no" title="statement not covered" >done = <span class="fstat-no" title="function not covered" >function () {</span> }; </span>}
+        this.io.close(); // Stop the socket IO instance
+        async.series([
+            function (callback) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (_this.http.listening) {
+<span class="cstat-no" title="statement not covered" >                    _this.http.close(callback);</span>
+                }
+                else {
+                    callback();
+                }
+            },
+            function (callback) { return _this.db.close(true, callback); },
+            function (callback) { _this.log.info('Server stopped.'); callback(); }
+        ], done);
+    };
+    // Easy shortcut for fetching a collection for a specific ObjType
+    App.prototype.collectionFor = function (type) {
+        return this.collections[collection_map_1.CollectionMap[type]];
+    };
+    App.VERSION = '0.0.1';
+    return App;
+}(events_1.EventEmitter));
+exports.App = App;
+&nbsp;
+//# sourceMappingURL=data:application/json;charset=utf8;base64,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QUE0QixjQUFPLENBQUM7UUFDckMsSUFBSSxDQUFDLEVBQUUsQ0FBQyxLQUFLLEVBQUUsQ0FBQyxDQUFDLDhCQUE4QjtRQUMvQyxLQUFLLENBQUMsTUFBTSxDQUFDO1lBQ1QsVUFBQyxRQUFRO2dCQUNMLEVBQUUsQ0FBQSxDQUFDLEtBQUksQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDLENBQUMsQ0FBQztvQkFDckIsS0FBSSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsUUFBUSxDQUFDLENBQUM7Z0JBQzlCLENBQUM7Z0JBQUMsSUFBSSxDQUFDLENBQUM7b0JBQ0osUUFBUSxFQUFFLENBQUM7Z0JBQ2YsQ0FBQztZQUNMLENBQUM7WUFDRCxVQUFDLFFBQVEsSUFBSyxPQUFBLEtBQUksQ0FBQyxFQUFFLENBQUMsS0FBSyxDQUFDLElBQUksRUFBRSxRQUFlLENBQUMsRUFBcEMsQ0FBb0M7WUFDbEQsVUFBQyxRQUFRLElBQU8sS0FBSSxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsaUJBQWlCLENBQUMsQ0FBQyxDQUFDLFFBQVEsRUFBRSxDQUFDLENBQUMsQ0FBQztTQUNsRSxFQUFFLElBQUksQ0FBQyxDQUFDO0lBQ2IsQ0FBQztJQUVELGlFQUFpRTtJQUNqRSwyQkFBYSxHQUFiLFVBQWMsSUFBYTtRQUN2QixNQUFNLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQyw4QkFBYSxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUM7SUFDakQsQ0FBQztJQWhHTSxXQUFPLEdBQUcsT0FBTyxDQUFDO0lBaUc3QixVQUFDO0FBQUQsQ0FsR0EsQUFrR0MsQ0FsR3dCLHFCQUFZLEdBa0dwQztBQWxHWSxXQUFHLE1Ba0dmLENBQUEiLCJmaWxlIjoic3JjL2FwcC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAqIGFzIHNpbyBmcm9tICdzb2NrZXQuaW8nO1xuaW1wb3J0ICogYXMgaHR0cCBmcm9tICdodHRwJztcbmltcG9ydCAqIGFzIHdpbnN0b24gZnJvbSAnd2luc3Rvbic7XG5pbXBvcnQgKiBhcyBhc3luYyBmcm9tICdhc3luYyc7XG5pbXBvcnQgeyBNb25nb0NsaWVudCwgRGIgYXMgTW9uZ29EYiwgQ29sbGVjdGlvbiBhcyBNb25nb0NvbGxlY3Rpb24sIE1vbmdvQ2FsbGJhY2sgfSBmcm9tICdtb25nb2RiJztcbmltcG9ydCB7IEV2ZW50RW1pdHRlciB9IGZyb20gJ2V2ZW50cyc7XG5pbXBvcnQgKiBhcyBfIGZyb20gJ2xvZGFzaCc7XG5cbmltcG9ydCB7IENsaWVudCB9IGZyb20gJy4vY2xpZW50JztcbmltcG9ydCB7IENvbGxlY3Rpb25NYXAgfSBmcm9tICcuL2NvbGxlY3Rpb25fbWFwJztcblxuaW1wb3J0IHsgT2JqVHlwZSB9IGZyb20gJ0B0aHJlYWR0aW1lL3RocmVhZHRpbWUtY29tbW9uJztcblxuZXhwb3J0IGNsYXNzIEFwcCBleHRlbmRzIEV2ZW50RW1pdHRlciB7XG4gICAgc3RhdGljIFZFUlNJT04gPSAnMC4wLjEnO1xuXG4gICAgcHVibGljIHBvcnQ6IG51bWJlcjtcbiAgICBwdWJsaWMgY2xpZW50czogQ2xpZW50W107XG4gICAgcHVibGljIGxvZzogd2luc3Rvbi5Mb2dnZXJJbnN0YW5jZTtcblxuICAgIHB1YmxpYyBkYlVyaTogc3RyaW5nO1xuICAgIHB1YmxpYyBkYjogTW9uZ29EYjtcbiAgICBwdWJsaWMgY29sbGVjdGlvbnM6IHtba2V5OiBzdHJpbmddOiBNb25nb0NvbGxlY3Rpb259O1xuXG4gICAgcHJpdmF0ZSBodHRwOiBodHRwLlNlcnZlcjtcbiAgICBwcml2YXRlIGlvOiBTb2NrZXRJTy5TZXJ2ZXI7XG5cbiAgICBjb25zdHJ1Y3Rvcihwb3J0OiBudW1iZXIgPXByb2Nlc3MuZW52LlBPUlQgfHwgMzAwMCwgZGJVcmk6IHN0cmluZyA9IHByb2Nlc3MuZW52LkRCX1VSSSB8fCAnbW9uZ29kYjovL2xvY2FsaG9zdC90aHJlYWR0aW1lJykge1xuICAgICAgICBzdXBlcigpO1xuXG4gICAgICAgIHRoaXMucG9ydCA9IHBvcnQ7XG4gICAgICAgIHRoaXMuZGJVcmkgPSBkYlVyaTtcbiAgICAgICAgdGhpcy5odHRwID0gaHR0cC5jcmVhdGVTZXJ2ZXIoKTtcbiAgICAgICAgdGhpcy5pbyA9IHNpbyh0aGlzLmh0dHApO1xuICAgICAgICB0aGlzLmNsaWVudHMgPSBbXTtcbiAgICAgICAgdGhpcy5jb2xsZWN0aW9ucyA9IHt9O1xuXG4gICAgICAgIC8vIFNldCB1cCBsb2dcbiAgICAgICAgdGhpcy5sb2cgPSBuZXcgd2luc3Rvbi5Mb2dnZXIoeyB0cmFuc3BvcnRzOiBbXG4gICAgICAgICAgICBuZXcgd2luc3Rvbi50cmFuc3BvcnRzLkNvbnNvbGUoeyd0aW1lc3RhbXAnOiB0cnVlfSkgXG4gICAgICAgIF19KTtcblxuICAgICAgICB0aGlzLmlvLm9uKCdjb25uZWN0aW9uJywgKHNvY2tldCkgPT4ge1xuICAgICAgICAgICAgLy8gQ3JlYXRlIG5ldyBjbGllbnRcbiAgICAgICAgICAgIGxldCBjbGllbnQgPSBuZXcgQ2xpZW50KHRoaXMsIHNvY2tldCk7XG4gICAgICAgICAgICAvLyBBZGQgaXQgdG8gdGhlIGNsaWVudHMgbGlzdFxuICAgICAgICAgICAgdGhpcy5jbGllbnRzLnB1c2goY2xpZW50KTtcbiAgICAgICAgICAgIC8vIFN0YXJ0IHRoZSBjbGllbnRcbiAgICAgICAgICAgIGNsaWVudC5zdGFydCgpO1xuICAgICAgICB9KTtcblxuICAgICAgICB0aGlzLm9uKCdjbGllbnRfZGlzY29ubmVjdCcsIChjbGllbnQ6IENsaWVudCkgPT4ge1xuICAgICAgICAgICAgXy5wdWxsKHRoaXMuY2xpZW50cywgY2xpZW50KTtcbiAgICAgICAgfSk7XG4gICAgfVxuXG4gICAgLy8gU3RhcnQgdGhlIHNlcnZlclxuICAgIHN0YXJ0KGRvbmU6IChlcnI/OiBhbnkpID0+IHZvaWQgPSAoKSA9PiB7fSk6IHZvaWQge1xuICAgICAgICB0aGlzLmxvZy5pbmZvKGBUaHJlYWR0aW1lIFNlcnZlciB2ZXJzaW9uICR7QXBwLlZFUlNJT059IHN0YXJ0aW5nLi4uYCk7XG4gICAgICAgIGFzeW5jLnNlcmllcyhbXG4gICAgICAgICAgICAoY2FsbGJhY2spID0+IHsgLy8gQ29ubmVjdCB0aGUgZGF0YWJhc2VcbiAgICAgICAgICAgICAgICBNb25nb0NsaWVudC5jb25uZWN0KHRoaXMuZGJVcmksIChlcnI6IGFueSwgZGI6IE1vbmdvRGIpID0+IHtcbiAgICAgICAgICAgICAgICAgICAgaWYoZXJyKSB7XG4gICAgICAgICAgICAgICAgICAgICAgICB0aGlzLmxvZy5lcnJvcihlcnIpO1xuICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIGNhbGxiYWNrKGVycik7XG4gICAgICAgICAgICAgICAgICAgIH1cblxuICAgICAgICAgICAgICAgICAgICB0aGlzLmxvZy5pbmZvKCdEYXRhYmFzZSBjb25uZWN0ZWQuJyk7XG4gICAgICAgICAgICAgICAgICAgIHRoaXMuZGIgPSBkYjtcblxuICAgICAgICAgICAgICAgICAgICBjYWxsYmFjaygpO1xuICAgICAgICAgICAgICAgIH0pO1xuICAgICAgICAgICAgfSxcbiAgICAgICAgICAgIChjYWxsYmFjaykgPT4ge1xuICAgICAgICAgICAgICAgIHRoaXMubG9nLmluZm8oJ0Nvbm5lY3RpbmcgY29sbGVjdGlvbnMuLi4nKTtcbiAgICAgICAgICAgICAgICBhc3luYy5mb3JFYWNoT2YoQ29sbGVjdGlvbk1hcCwgKGNvbDogc3RyaW5nLCB0eXBlOiBhbnksIGNhbGxiYWNrOiBGdW5jdGlvbikgPT4ge1xuICAgICAgICAgICAgICAgICAgICB0aGlzLmxvZy5pbmZvKGAgICAgJHtjb2x9Li4uYCk7XG4gICAgICAgICAgICAgICAgICAgIHRoaXMuZGIuY29sbGVjdGlvbihjb2wsIChlcnI6IGFueSwgbW9uZ29jb2w6IE1vbmdvQ29sbGVjdGlvbikgPT4ge1xuICAgICAgICAgICAgICAgICAgICAgICAgaWYoZXJyKSBjYWxsYmFjayhlcnIpO1xuICAgICAgICAgICAgICAgICAgICAgICAgdGhpcy5jb2xsZWN0aW9uc1tjb2xdID0gbW9uZ29jb2w7XG4gICAgICAgICAgICAgICAgICAgICAgICBjYWxsYmFjaygpO1xuICAgICAgICAgICAgICAgICAgICB9KTtcbiAgICAgICAgICAgICAgICB9LCBjYWxsYmFjayk7XG4gICAgICAgICAgICB9LFxuICAgICAgICAgICAgKGNhbGxiYWNrKSA9PiB0aGlzLmh0dHAubGlzdGVuKHRoaXMucG9ydCwgKCkgPT4geyAvLyBPcGVuIHRoZSBIVFRQIHNlcnZlclxuICAgICAgICAgICAgICAgIHRoaXMubG9nLmluZm8oYE5vdyBsaXN0ZW5pbmcgb24gJHt0aGlzLnBvcnR9YCk7XG4gICAgICAgICAgICAgICAgY2FsbGJhY2soKTtcbiAgICAgICAgICAgIH0pXG4gICAgICAgIF0sIGRvbmUpO1xuICAgIH1cblxuICAgIC8vIFN0b3AgdGhlIHNlcnZlclxuICAgIHN0b3AoZG9uZTogKGVycj86IGFueSkgPT4gdm9pZCA9ICgpID0+IHt9KTogdm9pZCB7XG4gICAgICAgIHRoaXMuaW8uY2xvc2UoKTsgLy8gU3RvcCB0aGUgc29ja2V0IElPIGluc3RhbmNlXG4gICAgICAgIGFzeW5jLnNlcmllcyhbXG4gICAgICAgICAgICAoY2FsbGJhY2spID0+IHsgLy8gU3RvcCB0aGUgSFRUUCBzZXJ2ZXJcbiAgICAgICAgICAgICAgICBpZih0aGlzLmh0dHAubGlzdGVuaW5nKSB7XG4gICAgICAgICAgICAgICAgICAgIHRoaXMuaHR0cC5jbG9zZShjYWxsYmFjayk7XG4gICAgICAgICAgICAgICAgfSBlbHNlIHtcbiAgICAgICAgICAgICAgICAgICAgY2FsbGJhY2soKTtcbiAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICB9LFxuICAgICAgICAgICAgKGNhbGxiYWNrKSA9PiB0aGlzLmRiLmNsb3NlKHRydWUsIGNhbGxiYWNrIGFzIGFueSksIC8vIERpc2Nvbm5lY3QgdGhlIERCXG4gICAgICAgICAgICAoY2FsbGJhY2spID0+IHsgdGhpcy5sb2cuaW5mbygnU2VydmVyIHN0b3BwZWQuJyk7IGNhbGxiYWNrKCk7IH1cbiAgICAgICAgXSwgZG9uZSk7XG4gICAgfVxuXG4gICAgLy8gRWFzeSBzaG9ydGN1dCBmb3IgZmV0Y2hpbmcgYSBjb2xsZWN0aW9uIGZvciBhIHNwZWNpZmljIE9ialR5cGVcbiAgICBjb2xsZWN0aW9uRm9yKHR5cGU6IE9ialR5cGUpOiBNb25nb0NvbGxlY3Rpb24ge1xuICAgICAgICByZXR1cm4gdGhpcy5jb2xsZWN0aW9uc1tDb2xsZWN0aW9uTWFwW3R5cGVdXTtcbiAgICB9XG59Il19
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Oct 31 2016 16:55:37 GMT+1100 (AEDT)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

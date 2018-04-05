@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Client.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> Client.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">92.2% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>130/141</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">85.71% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>24/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.91% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>30/33</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">95.73% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>112/117</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">69x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import * as sio from 'socket.io';
+import * as bcrypt from 'bcrypt';
+import * as async from 'async';
+import * as _ from 'lodash';
+import { EventEmitter } from 'events';
+&nbsp;
+import {
+    Message,
+    HandshakeMessage,
+    AuthMessage,
+    PermanentDisconnectMessage,
+    DisconnectMachineReason,
+    MessageType,
+    NetHandler,
+    StatusMessage,
+    ObjMessage,
+    IObj
+} from '@threadtime/threadtime-common';
+import { App, UserObj, IUserData, Obj, SubscriptionDispatch } from './';
+import {ObjNotFoundError, ValidationError} from "./Errors";
+&nbsp;
+export class Client extends EventEmitter {
+    private app: App; 
+    private socket: SocketIO.Socket;
+&nbsp;
+    netHandler: NetHandler;
+    clientVersion: string | null;
+    connected: boolean = false;
+&nbsp;
+    authenticated: boolean = false;
+    userObj: UserObj;
+    subscriptionDispatch: SubscriptionDispatch;
+&nbsp;
+    /**
+     * Construct a Client
+     * @param app The App from which the Client originates
+     * @param socket The SocketIO socket
+     */
+    constructor(app: App, socket: SocketIO.Socket) {
+        super();
+        this.app = app;
+        this.socket = socket;
+        this.netHandler = new NetHandler(socket);
+        this.subscriptionDispatch = new SubscriptionDispatch(this.app, this.netHandler);
+    }
+&nbsp;
+    /**
+     * Start the client
+     */
+    start(): void {
+        this.log('Starting connection...');
+        // Emit 'client-disconnect' event on disconnect
+        this.socket.on('disconnect', () =&gt; this.stop());
+&nbsp;
+        // Set-up handshake handler
+        this.netHandler.onMessage(MessageType.Handshake, (msg: Message) =&gt; this.handleHandshake(msg));
+        // Set up after-handshake handlers
+        this.on('handshake', () =&gt; {
+            this.netHandler.onMessage(MessageType.Auth, (msg: Message) =&gt; this.handleAuth(msg));
+        });
+        // Set-up after-auth handlers
+        this.on('auth-success', () =&gt; {
+            this.netHandler.onMessage(MessageType.Obj, (msg: Message) =&gt; this.handleObj(msg));
+        });
+&nbsp;
+        // Bind the SubscriptionDispatch
+        this.subscriptionDispatch.bind();
+&nbsp;
+        this.connected = true;
+    }
+&nbsp;
+    /**
+     * Stop the client
+     * @returns {Promise&lt;boolean&gt;|Promise} Resolved when the client has stopped
+     */
+    stop(): Promise&lt;boolean&gt; {
+        return new Promise&lt;boolean&gt;((resolve, reject) =&gt; {
+            if(!this.connected) return resolve(false); // Don't 'disconnect' if already DC'd
+&nbsp;
+            this.log('Stopping connection...');
+            this.connected = false;
+            if(this.socket.connected) this.socket.disconnect();
+            this.app.emit('client-disconnect', this);
+            this.log('Connection stopped');
+            resolve(true);
+        });
+    }
+&nbsp;
+    /**
+     * Log in the context of this Client
+     * @param str The string to log
+     */
+    log(str: string): void {
+        this.app.log.info(`[${this.userObj ? this.userObj._id + '(' + this.userObj.name + ')@' : ''}${this.socket.client.conn.remoteAddress}] ${str}`);
+    }
+&nbsp;
+    private handleHandshake(msg: Message): void {
+        let handshakeMsg = new HandshakeMessage(this.netHandler).encapsulate(msg);
+        this.log(`Handshake v=${handshakeMsg.version}`);
+&nbsp;
+        if(handshakeMsg.version !== App.VERSION) {
+            this.log('Versions incompatible, kicking');
+            let dcMsg = new PermanentDisconnectMessage(this.netHandler);
+            dcMsg.machineReason = DisconnectMachineReason.VersionMismatch;
+            dcMsg.humanReason = `Client-Server version mismatch (server ${App.VERSION}`;
+            this.netHandler.send(dcMsg);
+            this.stop();
+            return;
+        }
+&nbsp;
+        // Set client version in instance
+        this.clientVersion = handshakeMsg.version;
+&nbsp;
+        // Otherwise, reply back with handshake
+        let resp = new HandshakeMessage(this.netHandler);
+        resp.version = App.VERSION;
+        resp.replyTo = handshakeMsg.id;
+        this.netHandler.send(resp);
+&nbsp;
+        // Emit handshake
+        this.emit('handshake');
+    }
+&nbsp;
+    private handleAuth(msg: Message): void {
+        let authMsg = new AuthMessage(this.netHandler).encapsulate(msg);
+        this.log(`Authenticating user=${authMsg.username}`);
+&nbsp;
+        // I hate these ugly async things but unfortunately there isn't any other choice when you're dealing w/ a mixture of Promise and callback
+        async.waterfall([
+            (callback: Function) =&gt; {
+                // Fetch the userdata object
+                this.app.collections['userdata'].find({username: authMsg.username}).limit(1).toArray().then((docs: IUserData[]) =&gt; callback(null, docs)).catch(<span class="fstat-no" title="function not covered" >(</span>err) =&gt; <span class="cstat-no" title="statement not covered" >callback(err))</span>;
+            },
+            (docs: IUserData[], callback: Function) =&gt; {
+                // Check if the user exists
+                if(docs.length === 0) {
+                    // User doesn't exist
+                    this.log(`User '${authMsg.username}' does not exist`);
+&nbsp;
+                    // Send a failure status messsage
+                    let statusMsg = new StatusMessage(this.netHandler);
+                    statusMsg.success = false;
+                    statusMsg.respondTo(authMsg);
+&nbsp;
+                    return;
+                }
+                callback(null, docs[0]);
+            },
+            (userdata: IUserData, callback: Function) =&gt; {
+                // Compare the Bcrypt hashes
+                bcrypt.compare(authMsg.password, userdata.bcrypt, (err: Error, same: boolean) =&gt; callback(null, userdata, err, same));
+            },
+            (userdata: IUserData, err: Error, same: boolean, callback: Function) =&gt; {
+                if(err || !same) {
+                    // password comparison failed
+                    this.log(`User '${authMsg.username}' password comparison failed. err=${err} same=${same}`);
+&nbsp;
+                    // Send a failure status messsage
+                    let statusMsg = new StatusMessage(this.netHandler);
+                    statusMsg.success = false;
+                    statusMsg.respondTo(authMsg);
+&nbsp;
+                    return;
+                }
+&nbsp;
+                this.log(`User ${authMsg.username} authenticated successfully.`);
+&nbsp;
+                // Send a success status messsage
+                let statusMsg = new StatusMessage(this.netHandler);
+                statusMsg.success = true;
+                statusMsg.respondTo(authMsg);
+&nbsp;
+                // Set flags and usernames
+                this.authenticated = true;
+&nbsp;
+                // Fetch the UserObj
+                this.app.obj(userdata.objId).then((obj: Obj) =&gt; callback(null, obj));
+            },
+            (obj: Obj, callback: Function) =&gt; {
+                this.userObj = (new UserObj(this.app)).encapsulate(obj);
+                this.log(`User authenticated as ${this.userObj.name}`);
+&nbsp;
+                // Emit auth-success
+                this.emit('auth-success');
+&nbsp;
+                callback(null);
+            }
+        ]);
+    }
+&nbsp;
+    private handleObj(msg: Message) {
+        // NOTE only handles one Obj at a time
+        let objMsg = (new ObjMessage(this.netHandler)).encapsulate(msg);
+&nbsp;
+        // Reject if not authenticated
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(!this.authenticated) {
+            // Respond with an error message - TODO actual rejection reasoned messages
+<span class="cstat-no" title="statement not covered" >            this.log('User attempted to post obj but was not auth\'d');</span>
+&nbsp;
+            let statusMsg = <span class="cstat-no" title="statement not covered" >new StatusMessage(this.netHandler);</span>
+<span class="cstat-no" title="statement not covered" >            statusMsg.success = false;</span>
+<span class="cstat-no" title="statement not covered" >            statusMsg.respondTo(msg);</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+&nbsp;
+        // TODO
+        // - check permissions
+        // - generate ID and write to DB
+        // then
+        // - send the actual obj back to the client
+&nbsp;
+        async.waterfall([
+            (callback: Function) =&gt; {
+                // If no objs were provided, err
+                <span class="missing-if-branch" title="if path not taken" >I</span>if(_.isEmpty(objMsg.objs)) <span class="cstat-no" title="statement not covered" >return callback(new Error());</span>
+&nbsp;
+                let iobj = objMsg.objs[0];
+&nbsp;
+                // Attempt to load the obj
+                this.app.obj(objMsg.objs[0]._id).then((obj: Obj) =&gt; {
+                    // Do update stuff
+                    // Check if user matches, err if not
+                    if(this.userObj._id !== obj.ownerId) return callback(new Error(`user not authorised to modify obj (obj owned by ${obj._id})`));
+&nbsp;
+                    let newRev = obj.rev + 1;
+                    obj.setProps(iobj);
+                    obj.rev = newRev; // Increase revision
+                    obj.update().then(() =&gt; callback(null, obj.getProps())).catch(<span class="fstat-no" title="function not covered" >(</span>err) =&gt; <span class="cstat-no" title="statement not covered" >callback(err))</span>;
+                }).catch((err: Error) =&gt; {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if(err.name !== 'ObjNotFoundError') <span class="cstat-no" title="statement not covered" >return callback(err); </span>// Error was not an ObjNotFoundError, throw it up
+&nbsp;
+                    // Create the obj
+                    let obj = new Obj(this.app, iobj._id);
+                    obj.setProps(iobj); // Load in the obj props
+                    obj.owner = this.userObj;
+                    obj.regenerateId(); // Do not trust the client-provided id
+                    obj.update().then(() =&gt; callback(null, obj.getProps())).catch(<span class="fstat-no" title="function not covered" >(</span>err) =&gt; <span class="cstat-no" title="statement not covered" >callback(err))</span>;
+                });
+            },
+            (obj: IObj, callback: Function) =&gt; {
+                // Send the new objs back to the client
+                let newObjMsg = new ObjMessage(this.netHandler);
+                newObjMsg.objs = [obj];
+                newObjMsg.subscriptionIds = [];
+                newObjMsg.respondTo(msg);
+                callback();
+            }
+        ], (err) =&gt; {
+            if(err) {
+                // ERR
+                this.log(`Error in obj post: ${err}`);
+                <span class="missing-if-branch" title="if path not taken" >I</span>if(err instanceof ValidationError) <span class="cstat-no" title="statement not covered" >this.log(`Validation error: ${(&lt;ValidationError&gt;err).joiError.message}`);</span>
+&nbsp;
+                // Respond with an error message
+                let statusMsg = new StatusMessage(this.netHandler);
+                statusMsg.success = false;
+                statusMsg.respondTo(msg);
+            }
+        });
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Dec 09 2016 19:38:08 GMT+1100 (AEDT)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
