@@ -6,9 +6,12 @@ Python programming problems, spread over five weeks. For each of these problems,
 I was required to develop a working solution within five submissions, which I
 acheived successfully.
 
-The last two weeks of the competition saw the most complex problems presented, and I have collated my solutions to them here. See below for a table of a brief
+The last two weeks of the competition saw the most complex problems presented, 
+and I have collated my solutions to them here. See below for a table of a brief
 description of each problem; for copyright reasoning I cannot include the
 original problem texts.
+
+Directory structure:
 
     2017-Python-NCSSAdvanced/
         week4/
