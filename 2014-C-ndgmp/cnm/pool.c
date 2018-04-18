@@ -113,6 +113,12 @@ Job* Pool_RequestJobBatch(Pool* pool) {
 		if(recv(pool->sock, &currentJob->gridHeight, 8, MSG_WAITALL) != 8) Sys_RaiseError("pool: error receiving new job. (2)\n");
 		if(recv(pool->sock, &gridDataLength, 4, MSG_WAITALL) != 4) Sys_RaiseError("pool: error receiving new job. (3)\n");
 
+		// Network order
+		currentJob->id = ntohll(currentJob->id);
+		currentJob->gridWidth = ntohll(currentJob->gridWidth);
+		currentJob->gridHeight = ntohll(currentJob->gridHeight);
+		gridDataLength = ntohl(gridDataLength);
+
 		currentJob->state = JOB_UNFINISHED; // Set the job state to unfinished
 
 		char* gridData = (char*)malloc(gridDataLength);
@@ -154,18 +160,30 @@ void Pool_CommitJobBatch(Pool* pool, Job* jobBatch) {
 	char* buffer = malloc(bufferSize); // Create the buffer
 	memset(buffer, 0, bufferSize); // Clear the buffer
 	buffer[0] = 0x06; // Job Done packet id
+	jobsInPacket = htons(jobsInPacket); // Network order
 	memcpy(buffer + 1, &jobsInPacket, 2); // Copy in jobs-in-packet value
 	job = jobBatch;
 	int i = 3;
 	while(job != NULL) {
 		memcpy(buffer + i, &job->id, 8); // long: job id
+		*((unsigned long *)(buffer + i)) = htonll(*((unsigned long *)(buffer + i))); // Network order
+
 		memcpy(buffer + i + 8, &job->state, 1); // byte: state of grid
+
 		memcpy(buffer + i + 9, &job->world->ticks, 4); // int: generations ran
+		*((unsigned int *)(buffer + i + 9)) = htonll(*((unsigned long *)(buffer + i + 9))); // Network order
+
 		memcpy(buffer + i + 13, &job->msSpent, 4); // int: microseconds spent on job
+		*((unsigned int *)(buffer + i + 13)) = htonl(*((unsigned int *)(buffer + i + 13))); 
+
 		i += 17; // Increment counter
 		if(job->state == JOB_OSCILLATES || job->state == JOB_SPACESHIP) {
 			memcpy(buffer + i, &job->oscillationStart, 4); // int: start of oscillation
+			*((unsigned int *)(buffer + i)) = htonl(*((unsigned int *)(buffer + i))); // Network order
+
 			memcpy(buffer + i + 4, &job->oscillationEnd, 4); // int: end of oscillation
+			*((unsigned int *)(buffer + i + 4)) = htonl(*((unsigned int *)(buffer + i + 4))); // Network order
+
 			i += 8; // Increment counter for extra data
 		}
 		job = job->next;

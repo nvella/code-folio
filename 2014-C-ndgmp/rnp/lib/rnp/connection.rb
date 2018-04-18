@@ -15,7 +15,8 @@ module RNP
       # Expect auth packet
       packet = @tcp.read 1
       if packet.ord != 0x00 then raise 'expected login packet.' end
-      if @tcp.read(2).unpack('S')[0] != PROTOCOL then raise "expected protocol version #{PROTOCOL}." end
+      proto_ver = @tcp.read(2).unpack('S>')[0]
+      if proto_ver != PROTOCOL then raise "expected protocol version #{PROTOCOL} not #{proto_ver}." end
       puts "  reading credentials..."
       username = @tcp.read_string
       password = @tcp.read_string
@@ -34,7 +35,7 @@ module RNP
         rulebytes += byte.chr
       end
       if rulebytes.length != 2 then raise 'something went wrong' end
-      @tcp.write "#{0x04.chr}#{[@server.config['gen_max']].pack('L')}#{rulebytes}" # LOGIN OK, send params
+      @tcp.write "#{0x04.chr}#{[@server.config['gen_max']].pack('L>')}#{rulebytes}" # LOGIN OK, send params
             
       while true do
         packet_id = @tcp.read(1).ord
@@ -46,21 +47,21 @@ module RNP
         when 0x02 # request job
           request_job
         when 0x06 # job done
-          jobs_in_packet = @tcp.read(2).unpack('S')[0]
+          jobs_in_packet = @tcp.read(2).unpack('S>')[0]
           @server.completed += jobs_in_packet
           jobs_in_packet.times do
-            id = @tcp.read(8).unpack('Q')[0]
+            id = @tcp.read(8).unpack('Q>')[0]
             job = @jobs[id]
             state = @tcp.read(1).ord
-            job.generations = @tcp.read(4).unpack('L')[0]
-            job.final_data[:time] = @tcp.read(4).unpack('L')[0]
+            job.generations = @tcp.read(4).unpack('L>')[0]
+            job.final_data[:time] = @tcp.read(4).unpack('L>')[0]
             
             job.finished = Time.now          
             job.state = STATES[state]
 
             if EXTRA_DATA.include? state then
-              job.final_data[:ed_1] = @tcp.read(4).unpack('L')[0]
-              job.final_data[:ed_2] = @tcp.read(4).unpack('L')[0]
+              job.final_data[:ed_1] = @tcp.read(4).unpack('L>')[0]
+              job.final_data[:ed_2] = @tcp.read(4).unpack('L>')[0]
             end
           
             if SAVE_STATES.include? state then 
@@ -78,14 +79,14 @@ module RNP
     def request_job
       # give it a job
       jobs = @server.new_job_batch # ask the server for a new job batch, this will mutex and lock and shit. returns a job class
-      data = "#{0x03.chr}#{[jobs.length].pack('S')}"
+      data = "#{0x03.chr}#{[jobs.length].pack('S>')}"
       jobs.each do |job|
         job.id = @jobs.length
         @jobs.push job
         grid = job.grid_bin_data
         job.started = Time.now
         job.miner = @tcp.peeraddr[3]
-        data = "#{data}#{[job.id].pack('Q')}#{[job.width].pack('Q')}#{[job.height].pack('Q')}#{[grid.length].pack('L')}#{grid}"        
+        data = "#{data}#{[job.id].pack('Q>')}#{[job.width].pack('Q>')}#{[job.height].pack('Q>')}#{[grid.length].pack('L>')}#{grid}"        
       end
       @tcp.write data
     end
